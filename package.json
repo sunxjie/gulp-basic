@@ -1,4 +1,7 @@
 {
+  "name": "gulp-basic",
+  "version": "0.0.1",
+  "description": "Gulp basic",
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "del": "^2.2.2",
