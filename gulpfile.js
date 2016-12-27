@@ -14,7 +14,7 @@ var _src = {
     less:       'src/less/*.less',
     img:        'src/img/**/*',
     html:       'src/html/**/*',
-    media:      'src/media/**/*.*',
+    media:      'src/media/**/*',
 };
 
 // 构建目录
@@ -25,19 +25,18 @@ var _dist = {
     imgPath:    'dist/img/',
     htmlPath:   'dist/html/',
     mediaPath:  'dist/media/',
-}
+};
 
 // less
 gulp.task('less', function() {
     return gulp.src(_src.less)
         .pipe(less())
         .pipe(autoprefixer({
-            browsers: ['last 2 version'],
+            browsers: ['last 5 version'],
             cascade: false
         }))
         .pipe(gulp.dest(_dist.cssPath))
-
-    .pipe(rename({
+        .pipe(rename({
             suffix: '.min'
         }))
         .pipe(cssnano())
@@ -48,19 +47,18 @@ gulp.task('less', function() {
 gulp.task('images', function() {
     return gulp.src(_src.img)
         .pipe(gulp.dest(_dist.imgPath))
-})
+});
 
 // js
 gulp.task('scripts', function() {
     return gulp.src(_src.js)
         .pipe(gulp.dest(_dist.jsPath))
-
-    .pipe(rename({
+        .pipe(rename({
             suffix: '.min'
         }))
         .pipe(uglify())
         .pipe(gulp.dest(_dist.jsPath))
-})
+});
 
 // 处理 html
 gulp.task('html', function() {
@@ -94,7 +92,7 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
             baseDir: _dist.rootPath,
-            directory: true //显示目录文件列表
+            directory: true
         }
     });
     gulp.watch(_src.js, ['scripts']);
@@ -103,4 +101,4 @@ gulp.task('browser-sync', function() {
     gulp.watch(_src.html, ['html']);
     gulp.watch(_src.media, ['media']);
     gulp.watch(_dist.rootPath + '/**/*').on('change', browserSync.reload);
-})
+});
