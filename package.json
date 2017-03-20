@@ -7,8 +7,8 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.4",
     "gulp-content-includer": "^0.0.7",
-    "gulp-cssnano": "^2.1.2",
     "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0"

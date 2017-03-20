@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     del = require('del'),
     less = require('gulp-less'),
-    cssnano = require('gulp-cssnano'),
+    cssminify = require('gulp-clean-css'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -30,14 +30,14 @@ gulp.task('less', function() {
     return gulp.src(_src.less + 'style-\*\.less')
         .pipe(less())
         .pipe(autoprefixer({
-            browsers: ['last 5 version'],
-            cascade: false
+            browsers: ['last 5 iOS versions'],
+            cascade: true
         }))
         .pipe(gulp.dest(_dist.cssPath))
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(cssnano())
+        .pipe(cssminify())
         .pipe(gulp.dest(_dist.cssPath))
 });
 
