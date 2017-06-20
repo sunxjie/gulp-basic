@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "description": "Gulp basic",
   "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "del": "^2.2.2",
+    "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean-css": "^3.0.4",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.4.2",
     "gulp-content-includer": "^0.0.7",
+
     "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-if": "^2.0.2",
+    "gulp-tmtsprite": "0.0.22"
   }
 }
